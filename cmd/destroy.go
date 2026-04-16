@@ -67,6 +67,9 @@ func deleteInitData(dir string) {
 var destroyCmd = &cobra.Command{
 	Use:   "destroy",
 	Short: "Destroys the given Terrap workspace",
+	// NOTE: added Long description for clarity when running `terrap destroy --help`
+	Long: `Destroys the given Terrap workspace by removing the .terrap.json configuration file
+and any temporary Terraform executors or files that were created during initialization.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if cmd.Flag("directory").Changed {
 			deleteInitData(cmd.Flag("directory").Value.String())
