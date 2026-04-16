@@ -1,8 +1,8 @@
 # Terrap, by Sirrend
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/sirrend/terrap-cli?filename=go.mod)"/>
  required changes. </br>
-The tool offers clear and actionable notifications, helping you streamline the upgrade process and avoid any potential errors or complications.</br></br>
-🔍 **Terrap is an alpha version project, therefore some data might be partial.**
+The tool offers clear and actionable notifications, helping</br></br>
+🔍 version project, therefore some data might be partial.**
 
 > **Personal note:** I'm using this tool to manage provider upgrades across several AWS-heavy workspaces. Forked for local experimentation and learning.
 
@@ -72,3 +72,7 @@ Looking for a specific resource type changes? Use the `--data-sources` `--resour
 ### Stay up-to-date with `whats-new`
 Ready to explore what's new in the following version of your provider? Simply execute `terrap whats-new`.</br>
 Looking to delve into a specific version of your
+
+## Local Dev Notes 🗒️
+- When testing against real AWS workspaces, make sure `AWS_PROFILE` is set before running `terrap init`.
+- Useful alias: `alias tt='terrap scan'`
