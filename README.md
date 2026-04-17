@@ -54,15 +54,14 @@ Validate terrap is working by executing `terrap`.
 1. `CD` to the local Terraform folder you want to work with.</br>
    `cd < /terraform/folder/path >`</br></br>
 
-2. Initialize a new Terrap workspace where you would run terraform apply with `terrap init`.</br></br>
+2terrap init`.</br></br>
     <strong>Important!</strong> </br>
-    As Terrap runs <code>terraform init</code> under the hood, it would need every configuration component you normally use when executing the command.</br>
-    It can be environment variables, the <code>.aws/credentials</code> file, etc.
-
+    As Terrap runs <code>terraform init</code> under the hood, it would need every configuration component you normally use when executing the command</br>
+    It can be environment variables, the <code>.aws/n
 
 3. Scan your workspace with: `terrap scan`
 
-https://user-images.githubusercontent.com/47568615/236044850-3473952a-4169-4d63-beb7-cf1664afc35a.mov
+https://user-images.githubusercontent044850-3473952a-4169-4d63-beb7-cf1664afc35a.mov
 
 ## Features 🚀
 ### Scan for changes with `scan`
@@ -74,5 +73,6 @@ Ready to explore what's new in the following version of your provider? Simply ex
 Looking to delve into a specific version of your
 
 ## Local Dev Notes 🗒️
-- When testing against real AWS workspaces, make sure `AWS_PROFILE` is set before running `terrap init`.
-- Useful alias: `alias tt='terrap scan'`
+- When testing against real AWS workspaces, make sure `AWS_PROFILE` is set before running `terrap scan`.
+- To avoid accidental state changes, always run `terrap scan` in a read-only context — never from a directory with active `terraform.tfstate` locks.
+- Useful alias: `alias tscan='AWS_PROFILE=dev terrap scan'`
