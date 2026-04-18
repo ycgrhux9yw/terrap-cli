@@ -1,10 +1,8 @@
 # Terrap, by Sirrend
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/sirrend/terrap-cli?filename=go.mod)"/>
- required changes. </br>
-The tool offers clear and actionable notifications, helping</br></br>
-🔍 version project, therefore some data might be partial.**
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/sirrend/terrap-cli?filename=go. changes. </br>
+The tool be partial.**
 
-> **Personal note:** I'm using this tool to manage provider upgrades across several AWS-heavy workspaces. Forked for local experimentation and learning.
+> tool to manage provider upgrades across several AWS-heavy workspaces. Forked for local experimentation and learning.
 
 ## Resources
 * Documentation - <a href="https://www.sirrend.com/terrap-docs">sirrend.com/terrap-docs</a>
@@ -74,5 +72,5 @@ Looking to delve into a specific version of your
 
 ## Local Dev Notes 🗒️
 - When testing against real AWS workspaces, make sure `AWS_PROFILE` is set before running `terrap scan`.
-- To avoid accidental state changes, always run `terrap scan` in a read-only context — never from a directory with active `terraform.tfstate` locks.
-- Useful alias: `alias tscan='AWS_PROFILE=dev terrap scan'`
+- To avoid accidental state changes, always run `terrap scan` in a read-only context — never from a directory with a live backend without a plan.
+- Useful alias for quick scanning: `alias tscan='AWS_PROFILE=default terrap scan'`
