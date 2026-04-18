@@ -1,44 +1,51 @@
-/*
-Copyright © 2023 Sirrend
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
 package cmd
 
 import (
-	"github.com/sirrend/terrap-cli/internal/workspace"
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 )
 
-var mainWorkspace = workspace.Workspace{}
+var (
+	// Version is set at build time via ldflags
+	Version = "dev"
+	// Commit is set at build time via ldflags
+	Commit = "none"
+)
 
-// rootCmd represents the base command when called without any subcommands
+// rootCmd is the base command for the terrap CLI.
+// All subcommands are registered as children of this command.
 var rootCmd = &cobra.Command{
 	Use:   "terrap",
-	Short: "CLI utility used to notify about provider changes in your code.",
+	Short: "Terrap - Terraform wrapper for multi-environment management",
+	Long: `Terrap is a CLI tool that wraps Terraform to provide
+simplified multi-environment and multi-region infrastructure management.
+
+It helps teams manage Terraform workspaces, state, and deployments
+across different environments with a consistent workflow.`,
+	SilenceUsage:  true,
+	SilenceErrors: true,
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
+// versionCmd prints the current version of the CLI.
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Print the version of terrap",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("terrap version %s (commit: %s)\n", Version, Commit)
+	},
+}
+
+// Execute runs the root command and handles any top-level errors.
+// This is called from main.go.
 func Execute() {
-	err := rootCmd.Execute()
-	if err != nil {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 		os.Exit(1)
 	}
 }
 
 func init() {
+	rootCmd.AddCommand(versionCmd)
 }
