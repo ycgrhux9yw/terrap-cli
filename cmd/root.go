@@ -30,9 +30,9 @@ across different environments with a consistent workflow.`,
 
 // versionCmd prints the current version of the CLI.
 var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Print the version of terrap",
-	Aliases: []string{"v"},
+	Use:     "version",
+	Short:   "Print the version of terrap",
+	Aliases: []string{"v", "ver"},
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("terrap version %s (commit: %s)\n", Version, Commit)
 	},
