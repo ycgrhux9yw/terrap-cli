@@ -32,6 +32,7 @@ across different environments with a consistent workflow.`,
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Print the version of terrap",
+	Aliases: []string{"v"},
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("terrap version %s (commit: %s)\n", Version, Commit)
 	},
