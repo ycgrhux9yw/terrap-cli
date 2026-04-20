@@ -1,11 +1,5 @@
 # Terrap, by Sirrend
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/sirrend/terrap-cli?filename=go. changes. </br>
-The tool be partial.**
-
-> tool to manage provider upgrades across several AWS-heavy workspaces. Forked for local experimentation and learning.
-
-## Resources
-* Documentation - <a href="https://www.sirrend.com/terrap-docs">sirrend.com/terrap-docs</a>
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/sirrend/terrap-cli?filename=go.https://www.sirrend.com/terrap-docs">sirrend.com/terrap-docs</a>
 
 ## Constraints 🧱
 1. Supported Terraform Core versions: `>=0.13`.
@@ -74,3 +68,5 @@ Looking to delve into a specific version of your
 - When testing against real AWS workspaces, make sure `AWS_PROFILE` is set before running `terrap scan`.
 - To avoid accidental state changes, always run `terrap scan` in a read-only context — never from a directory with a live backend without a plan.
 - Useful alias for quick scanning: `alias tscan='AWS_PROFILE=default terrap scan'`
+- For scanning a specific workspace quickly: `alias tscan-staging='AWS_PROFILE=staging terrap scan'`
+- Note: if you have multiple AWS profiles, consider wrapping the alias with a profile selector function for convenience.
