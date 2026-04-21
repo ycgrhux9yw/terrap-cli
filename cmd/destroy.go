@@ -73,6 +73,7 @@ and any temporary Terraform executors or files that were created during initiali
 
 Note: this only removes terrap metadata and temp files - your actual Terraform source
 files and state are left untouched.`,
+	Args: cobra.NoArgs, // personal note: prevent accidental positional args being silently ignored
 	Run: func(cmd *cobra.Command, args []string) {
 		if cmd.Flag("directory").Changed {
 			deleteInitData(cmd.Flag("directory").Value.String())
