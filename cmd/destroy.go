@@ -77,7 +77,11 @@ files and state are left untouched.`,
 		if cmd.Flag("directory").Changed {
 			deleteInitData(cmd.Flag("directory").Value.String())
 		} else {
-			currentPath, _ := os.Getwd()
+			currentPath, err := os.Getwd()
+			if err != nil {
+				_, _ = commons.RED.Println("Failed to determine current directory:", err)
+				os.Exit(1)
+			}
 			deleteInitData(currentPath)
 		}
 	},
